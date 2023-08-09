@@ -1,0 +1,256 @@
+html {
+  /* If your content is too close or beneath the header when making use of smooth scroll, You can uncomment the following property. Play around with the value to achieve desired result */
+  /* scroll-padding-top: 80px; */
+}
+
+/*******************************/
+/* HEADER STYLING START */
+/*******************************/
+/* Header properties */
+.c-header {
+  --max-width: 1320px;
+  --logo-height: 30px;
+  --toggler-bg-color: transparent;
+  --toggler-icon-color: #fff;
+  --nav-bg-color: #f18f01;
+  --links-gap: 32px;
+  --desktop-links-gap: 64px;
+  --nav-link-color: #fff;
+  --header-fixed-bg-color: #f18f01;
+}
+
+.c-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.c-header-content {
+  padding: 12px;
+  width: 100%;
+  max-width: var(--max-width);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.c-logo:link,
+.c-logo:visited {
+}
+
+.c-logo:hover {
+}
+
+.c-logo:active {
+}
+
+.c-logo-img {
+  display: inline-block;
+  height: var(--logo-height);
+}
+
+.c-toggler {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  width: 42px;
+  height: 30px;
+  background-color: var(--toggler-bg-color);
+  position: relative;
+  z-index: 20;
+}
+
+.c-toggler-icon,
+.c-toggler-icon::before,
+.c-toggler-icon::after {
+  display: inline-block;
+  height: 2px;
+  width: 40px;
+  border-radius: 20px;
+  background-color: var(--toggler-icon-color);
+  transition: all 0.3s ease;
+}
+
+.c-toggler-icon {
+  position: relative;
+}
+
+.c-toggler-icon::before,
+.c-toggler-icon::after {
+  position: absolute;
+  left: 0;
+  content: '';
+  display: inline-block;
+}
+
+.c-toggler-icon::before {
+  top: -12px;
+}
+
+.c-toggler-icon::after {
+  top: 12px;
+}
+
+.c-nav {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--nav-bg-color);
+  left: 100%;
+  transition: all 0.6s ease;
+}
+
+.c-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--links-gap);
+  height: 100%;
+}
+
+.c-menu-item {
+}
+
+.c-menu-link:link,
+.c-menu-link:visited {
+  text-decoration: none;
+  color: var(--nav-link-color);
+  font-size: 18px;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.c-menu-link::after {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  background-color: currentColor;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.c-menu-link:hover::after,
+.c-menu-link.active::after {
+  opacity: inherit;
+  bottom: -8px;
+}
+
+.c-menu-link:active {
+  opacity: 1;
+}
+
+.c-menu-link.active {
+  opacity: 1;
+}
+
+/* STYLING WHEN HEADER IS OPEN */
+.c-header.open .c-toggler-icon {
+  background-color: transparent;
+}
+
+.c-header.open .c-toggler-icon::before,
+.c-header.open .c-toggler-icon::after {
+  top: 0;
+}
+
+.c-header.open .c-toggler-icon::before {
+  transform: rotate(135deg);
+}
+
+.c-header.open .c-toggler-icon::after {
+  transform: rotate(-135deg);
+}
+
+.c-header.open .c-nav {
+  left: 0;
+}
+
+/* STYLING WHEN HEADER IS FIXED */
+.c-header.fixed {
+  position: fixed;
+  background-color: var(--header-fixed-bg-color);
+}
+
+/* STYLING FOR DESKTOP HEADER */
+/* Change min-width to desired value to achieve responsiveness at diff screen size.
+(NOTE: We cannot use CSS properties to set min-width value. It as to be done manually) */
+@media screen and (min-width: 992px) {
+  .c-toggler {
+    display: none;
+  }
+
+  .c-nav {
+    position: relative;
+    z-index: auto;
+    top: auto;
+    height: auto;
+    width: auto;
+    background-color: transparent;
+    left: auto;
+  }
+
+  .c-menu {
+    gap: var(--desktop-links-gap);
+    flex-direction: row;
+  }
+}
+
+/*******************************/
+/* HEADER STYLING END */
+/*******************************/
+
+/*******************************/
+/* PRESENTATION STYLING START */
+/*******************************/
+/* Following code doesn't have anything to do with header. It's just for presentation purpose. You can remove this entire presentation block of code when building your project */
+section {
+  padding: 100px 20px;
+  text-align: center;
+  min-height: 100vh;
+}
+
+section:nth-child(even) {
+  background-color: #fff;
+}
+
+section:nth-child(odd) {
+  background-color: #f3f3f3;
+}
+
+.hero {
+  color: #fff;
+  background-image: linear-gradient(
+      to right,
+      rgba(241, 143, 1, 0.6),
+      rgba(241, 143, 1, 0.6)
+    ),
+    url('./../img/hero-bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-top: 30vh;
+}
+
+/*******************************/
+/* PRESENTATION STYLING END */
+/*******************************/

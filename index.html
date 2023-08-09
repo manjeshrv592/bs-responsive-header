@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Responsive Header with Bootstrap</title>
+  </head>
+  <body data-bs-spy="scroll" data-bs-target="primary-nav">
+    <!-- All class names start with 'c-'. 'c' stands for custom. I just made it up so it doesn't collide with bootstrap class names -->
+
+    <!--  HEADER START -->
+    <header class="c-header">
+      <div class="c-header-content">
+        <!-- Logo -->
+        <a href="#home" class="c-logo">
+          <img
+            src="./assets/img/logo-white.png"
+            alt="Logo"
+            class="c-logo-img"
+          />
+        </a>
+
+        <!-- Toggler button -->
+        <button class="c-toggler">
+          <span class="c-toggler-icon">&nbsp;</span>
+        </button>
+
+        <!-- Nav menu -->
+        <nav id="primary-nav" class="c-nav">
+          <ul class="c-menu">
+            <li class="c-menu-item">
+              <a href="#home" class="c-menu-link">Home</a>
+            </li>
+            <li class="c-menu-item">
+              <a href="#about" class="c-menu-link">About</a>
+            </li>
+            <li class="c-menu-item">
+              <a href="#services" class="c-menu-link">Services</a>
+            </li>
+            <li class="c-menu-item">
+              <a href="#gallery" class="c-menu-link">Gallery</a>
+            </li>
+            <li class="c-menu-item">
+              <a href="#testimonials" class="c-menu-link">Testimonials</a>
+            </li>
+            <li class="c-menu-item">
+              <a href="#contact" class="c-menu-link">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!--  HEADER END -->
+
+    <!-- PRESENTAION MARKUP START -->
+    <!-- Following code doesn't have anything to do with header. It's just for presentation purpose. You can remove this entire presentation block of code when building your project -->
+
+    <!-- NOTE: Header gets fixed after we scroll past first section. Make sure you're project as class named 'hero' for first section. Else fixed navbar functionality is going to work. -->
+    <main>
+      <section id="home" class="hero">
+        <h2>Home</h2>
+        <p class="lead fw-medium">
+          Responsive header with HTML/CSS & Bootstrap 5
+        </p>
+      </section>
+      <section id="about">
+        <h2>About</h2>
+      </section>
+      <section id="services">
+        <h2>Services</h2>
+      </section>
+      <section id="gallery">
+        <h2>Gallery</h2>
+      </section>
+      <section id="testimonials">
+        <h2>Testimonials</h2>
+      </section>
+      <section id="contact">
+        <h2>Contact</h2>
+      </section>
+    </main>
+    <!-- PRESENTAION MARKUP END -->
+
+    <!-- Bootstrap JS -->
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>
