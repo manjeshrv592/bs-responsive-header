@@ -1,3 +1,4 @@
+('use strict');
 /////////////////////////////////////////
 // DOM SELECTION
 const header = document.querySelector('.c-header');
@@ -34,3 +35,41 @@ const fixedNavOpt = {
 const heroObserver = new IntersectionObserver(fixedNav, fixedNavOpt);
 
 if (hero) heroObserver.observe(hero);
+
+////////////////////////////////////////////////
+// Theme mode
+
+const themeToggler = document.getElementById('theme-toggler');
+
+const getStoredTheme = () => localStorage.getItem('theme');
+const setStoredTheme = theme => localStorage.setItem('theme', theme);
+
+const getPreferredTheme = () => {
+  const storedTheme = getStoredTheme();
+  if (storedTheme) {
+    return storedTheme;
+  }
+
+  return window.matchMedia('(prefers-color-scheme: dark)').matches
+    ? 'dark'
+    : 'light';
+};
+
+const setTheme = theme => {
+  if (
+    theme === 'auto' &&
+    window.matchMedia('(prefers-color-scheme: dark)').matches
+  ) {
+    document.documentElement.setAttribute('data-bs-theme', 'dark');
+  } else {
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  }
+};
+
+setTheme(getPreferredTheme());
+
+themeToggler.addEventListener('click', () => {
+  const currentTheme = document.documentElement.dataset.bsTheme;
+  const theme = currentTheme === 'dark' ? 'light' : 'dark';
+  setTheme(theme);
+});

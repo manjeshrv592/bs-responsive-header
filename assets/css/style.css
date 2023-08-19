@@ -1,3 +1,32 @@
+/* Light mode colors */
+[data-bs-theme='light'] {
+  --body-bg: #fafafa;
+  --body-bg-subtle: #eeeeee;
+}
+
+/* Dark mode colors */
+[data-bs-theme='dark'] {
+  --body-bg: #212121;
+  --body-bg-subtle: #616161;
+}
+
+/* Elements with 'd-light-none' class wont be displayed in light mode */
+[data-bs-theme='light'] .d-light-none {
+  display: none;
+}
+
+/* Elements with 'd-dark-none' class wont be displayed in dark mode */
+[data-bs-theme='dark'] .d-dark-none {
+  display: none;
+}
+
+/* Theme toggler button styling */
+#theme-toggler {
+  font-size: 20px;
+  color: #fff;
+  border: none;
+}
+
 html {
   /* If your content is too close or beneath the header when making use of smooth scroll, You can uncomment the following property. Play around with the value to achieve desired result */
   /* scroll-padding-top: 80px; */
@@ -230,11 +259,11 @@ section {
 }
 
 section:nth-child(even) {
-  background-color: #fff;
+  background-color: var(--body-bg);
 }
 
 section:nth-child(odd) {
-  background-color: #f3f3f3;
+  background-color: var(--body-bg-subtle);
 }
 
 .hero {
